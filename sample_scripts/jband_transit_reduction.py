@@ -6,20 +6,20 @@ import numpy as np
 import warnings
 
 ######## pipeline steps #################################
-remake_darks_and_flats = True # true-> call
-remake_bkg = True
+remake_darks_and_flats = False
+remake_bkg = False
 calibrate_data = True
 photometric_extraction = False
 fit_for_eclipse = False
 ######## calibration params ###############
 data_dir = '/Volumes/External/exowirc_data/Kepler289/'
 output_dir = '/Volumes/External/exowirc_data/Output/'
-test_name = 'test1'
+test_name = 'kepler289'
 nonlinearity_fname = None
 naming_style = 'image'
-science_seqs = [(65, 66)]   # 65-458, but could set for smaller range for testing calibration function
+science_seqs = [(65, 66)]
 dark_seqs = [(458, 477)]
-flat_seq = (22, 41) # img range
+flat_seq = (22, 41)
 dark_for_flat_seq = (2, 21)
 background_mode = 'median'
 covariate_names = []
@@ -49,8 +49,7 @@ target_accept = 0.99   #basically step-size tuning, closer to 1 -> small steps
 if __name__ == '__main__':
   # destructre function call from init_output_direcs, pass in output_dir and
   # test_name. create 3 folders in the path: calib_dir, dump_dir, img_dir
-	calib_dir, dump_dir, img_dir = iu.init_output_direcs(output_dir,
-		test_name)
+	calib_dir, dump_dir, img_dir = iu.init_output_direcs(output_dir, test_name)
 
   # if calibrate_data flag is turned on, call calibrate_all
 	if calibrate_data:
@@ -74,6 +73,7 @@ if __name__ == '__main__':
 				ann_rads = ann_rads,
 				source_detection_sigma = source_detection_sigma,
 				max_num_compars = max_num_compars)	
+
 	if fit_for_eclipse:
 		with warnings.catch_warnings():
 			
