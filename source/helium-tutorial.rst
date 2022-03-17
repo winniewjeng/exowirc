@@ -56,19 +56,16 @@ Specifically for images with background mode set to global (this is the typical 
   
 Set the lower and upper sigma thresholds for which to remove pixels from the background image. We typically use a lower bound of 5 sigma, and a large upper bound of 1000 to include all the highest outliers.
 
->>>
 .. code-block:: Python
   bkg_sigma_lower = 5
   bkg_sigma_upper = 1000
   background_mode = 'helium'
->>> 
 
 Optionally indicate the path to the file containing the array of pixel coordinates and their corresponding nonlinearity coefficients if the image pixels have oversaturated brightness (this is typically not necessary):
 
 .. code-block:: Python
   
   nonlinearity_fname = 'absolute path to the directory/'
->>>
 
 Covariates are quantities to be used for systematic noise correction. Add the covariates whose data you would like to examine in the covariate_names list. For example:
 
@@ -126,8 +123,6 @@ Set a maximum number of comparison stars to use in the photometry process. If th
 .. code-block:: Python
 
   max_num_compars = 10
-
->>>
 
 Define parameters for the fitting of the planet transit shape. Ideally, these will be informed by existing constraints from other photometric analysis, but for transits detected at high SNR the fits should be robust for wide uniform priors:
 
