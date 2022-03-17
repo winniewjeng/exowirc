@@ -1,9 +1,9 @@
 J-Band Tutorial
 ***************
 
-The documentation below describes the steps to analyze images applied with a j-band filter. To analyze science images taken with the k-band filter and the helium filter, please navigate to the :doc:`kband-tutorial` and :doc:`helium-tutorial` page respectively. 
+The documentation below describes the steps to analyze images taken with a j-band filter. To analyze science images taken with the k-band filter and the helium filter, please navigate to the :doc:`kband-tutorial` and :doc:`helium-tutorial` pages respectively. 
 
-To begin utilizing all functions within the library, create five flags corresponding to the five core endpoints of the library:
+To begin utilizing all functions within the library, create five flags corresponding to the five core functions of the library:
 
 .. code-block:: Python
 
@@ -30,7 +30,7 @@ Specify the full paths to the raw image data as well as the output directory. Al
 
 Note that the output directory must be manually created before running the code.
 
-If the data is provided with a file for correcting nonlinearity in the target's brightness, indicate the absolute path to the nonlinearity file. Otherwise, leave the variable assignment as None.
+If the data requires correcting nonlinearity in the target's brightness due to detector saturation (this is uncommon and typically not required), indicate the absolute path to the nonlinearity file. Otherwise, leave the variable assignment as None or remove it.
 
 .. code-block:: Python
 
@@ -43,7 +43,7 @@ Indicate the starting and ending indices of the science images and dark sequence
   science_seqs = [(65, 458)]  
   dark_seqs = [(458, 477)] 
 
-The range may be narrowed when running tests. If more than one range is analyzable, simply include the tuple in the array.
+The science image range may be narrowed when running tests of the calibration or photometry steps. If more than one range of images is analyzable, simply include the extra tuple in the array.
 
 Similarly, include the starting and ending indices for the flat image sequences as well as for the dark for flat sequences:
 
@@ -52,15 +52,15 @@ Similarly, include the starting and ending indices for the flat image sequences 
   flat_seq = (22, 41)
   dark_for_flat_seq = (2, 21)
 
-Depending on the analysis, indicate the background mode. The available modes include 'median', 'global', and 'helium'. J-band filter typically uses 'median' or 'global' mode:
+Depending on the analysis, indicate the background mode. The available modes include 'median', 'global', and 'helium'. J-band filter observations typically use 'median' or 'global' mode:
 
 .. code-block:: Python
 
   background_mode = 'median'
 
-To see follow an example of applying the 'global' mode,please check out the :doc:`jband-tutorial` page.
+To follow an example of applying the 'global' background mode, please check out the :doc:`helium-tutorial` page.
 
-Provide the estimated pixel coordinate of the target source in the science image:
+Provide the estimated pixel coordinate of the target source in the science images:
 
 .. code-block:: Python
 
