@@ -153,7 +153,6 @@ Define the parameters for how many steps to run the exoplanet PyMC3 posterior sa
   draws = 1500           #number of steps per chain
   target_accept = 0.99   #basically step-size tuning, closer to 1 -> small steps
 
->>>
 
 Congrats! You have now defined all of the necessary input parameters to reduce and analyze your WIRC data. Now begins the code segment to execute the functions you have just defined the inputs for. First, import all the necessary library functions:
 
