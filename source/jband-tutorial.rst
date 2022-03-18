@@ -191,17 +191,17 @@ Finally, fit the extracted photometry for the transit profile by calling the fit
 
 .. code-block:: Python
 
-  	if fit_for_eclipse:
-		with warnings.catch_warnings():
-			warnings.simplefilter("ignore")
-			best_ap = fu.quick_aperture_optimize(dump_dir, img_dir, 
-				extraction_rads)
-			fu.fit_lightcurve(dump_dir, img_dir, best_ap,
-				background_mode, covariate_names, texp,
-				r_star_prior, t0_prior, period_prior,
-				a_rs_prior, b_prior, jitter_prior,
-				phase = phase, ror_prior = ror_prior,
-				tune = tune, draws = draws, 
-				target_accept = target_accept)
+  if fit_for_eclipse:
+    with warnings.catch_warnings():
+    warnings.simplefilter("ignore")
+    best_ap = fu.quick_aperture_optimize(dump_dir, img_dir, 
+		extraction_rads)
+		fu.fit_lightcurve(dump_dir, img_dir, best_ap,
+		background_mode, covariate_names, texp,
+		r_star_prior, t0_prior, period_prior,
+		a_rs_prior, b_prior, jitter_prior,
+		phase = phase, ror_prior = ror_prior,
+		tune = tune, draws = draws, 
+		target_accept = target_accept)
 
 This concludes the J-band tutorial. Download the J-band sample script (and ask for some WIRC J-band data) and try it out!
