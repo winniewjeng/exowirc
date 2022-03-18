@@ -183,22 +183,23 @@ The calib_dir stores the calibrated image data that are later used for photometr
 Construct a background image by using the make_calibrated_bkg_image function with all the following parameters:
 
 .. code-block:: Python
-  
-  with warnings.catch_warnings():
-    warnings.simplefilter("ignore")
-    bkg = cu.make_calibrated_bkg_image(
-      data_dir,
-      calib_dir,
-      bkg_seq,
-      dark_seqs,
-      dark_for_flat_seq,
-      flat_seq,
-      naming_style = naming_style,
-      nonlinearity_fname = nonlinearity_fname,
-      sigma_lower = bkg_sigma_lower, 
-      sigma_upper = bkg_sigma_upper, 
-      remake_darks_and_flats = remake_darks_and_flats,
-      remake_bkg = remake_bkg)
+ 
+  if remake_bkg:
+    with warnings.catch_warnings():
+      warnings.simplefilter("ignore")
+      bkg = cu.make_calibrated_bkg_image(
+        data_dir,
+        calib_dir,
+        bkg_seq,
+        dark_seqs,
+        dark_for_flat_seq,
+        flat_seq,
+        naming_style = naming_style,
+        nonlinearity_fname = nonlinearity_fname,
+        sigma_lower = bkg_sigma_lower, 
+        sigma_upper = bkg_sigma_upper, 
+        remake_darks_and_flats = remake_darks_and_flats,
+        remake_bkg = remake_bkg)
 
 After constructing the background image, calibrate the sceince images by calling the calibrate_all function with the following parameters:
 
