@@ -204,20 +204,20 @@ After constructing the background image, calibrate the sceince images by calling
 
 .. code-block:: Python
 
-	if calibrate_data:
-    with warnings.catch_warnings():
-      warnings.simplefilter("ignore")
-      cu.calibrate_all(
-        data_dir,
-        calib_dir,
-        dump_dir,
-        science_seqs,
-        dark_seqs,
-        dark_for_flat_seq,
-        flat_seq,
-        style = naming_style,
-        background_mode = background_mode,
-        bkg_filename = bkg)
+    if calibrate_data:
+      with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+      	cu.calibrate_all(
+          data_dir,
+          calib_dir,
+          dump_dir,
+          science_seqs,
+          dark_seqs,
+          dark_for_flat_seq,
+          flat_seq,
+          style = naming_style,
+          background_mode = background_mode,
+          bkg_filename = bkg)
 
 With the science images all calibrated and the noise removed, they are now ready for photometric analysis. Perform photometry by calling the perform_photometry function if the photometric_extraction flag is turned on, and pass in all the necessary parameters:
   
